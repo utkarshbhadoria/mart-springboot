@@ -1,5 +1,6 @@
 package com.ecommerce.usercontroller;
 
+import com.ecommerce.userEntity.UserAuthentication;
 import com.ecommerce.userService.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +18,9 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<User>> getuser(@PathVariable Long Id){
-        Optional<User> user = userService.getuser(Id);
+    @GetMapping
+    public ResponseEntity<Optional<User>> getuser(@RequestBody UserAuthentication userAuthentication){
+        Optional<User> user = userService.getuser();
         return ResponseEntity.ok(user);
 
     }

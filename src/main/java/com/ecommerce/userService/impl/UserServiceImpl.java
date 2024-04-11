@@ -1,6 +1,7 @@
 package com.ecommerce.userService.impl;
 
 import com.ecommerce.userEntity.User;
+import com.ecommerce.userEntity.UserAuthentication;
 import com.ecommerce.userRepository.userRepository;
 import com.ecommerce.userService.UserService;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,13 @@ public class UserServiceImpl implements UserService {
             user = userRepository.findById(Id);
         }
         return user;
+    }
+
+    @Override
+    public User getuserbyusername(UserAuthentication userAuthentication) {
+        String username = userAuthentication.getUsername();
+        String password = userAuthentication.getPassword();
+        User user = userRepository.findBy()
     }
 
 }
